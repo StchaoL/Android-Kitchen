@@ -16,10 +16,9 @@ version=0.224
 if [ ! -e menu ]
 then
   echo
-  echo "Ensure you run this file from the SAME folder as where it was"
-  echo "installed, otherwise the kitchen will have problems running the"
-  echo "scripts.  After you 'cd' to the correct folder, start the kitchen"
-  echo "with the ./menu command, NOT with any other command or method!"
+  echo "确认你在安卓厨房的安装目录下执行该文件。否则在运行该脚本时"
+  echo "会出现问题。你应该在使用”cd“命令跳转到”安卓厨房“的目录下"
+  echo "之后，再使用”./menu“来运行”安卓厨房”                "
   exit 0
 fi
 
@@ -30,7 +29,7 @@ for check_dir in ${dir_list[@]}
 do
   if [ ! -e $check_dir ]
   then
-    echo "Error: Folder '$check_dir' not found"
+    echo "错误：文件夹 '$check_dir' 未找到"
     error_found=1
   fi
 done
@@ -38,7 +37,7 @@ done
 if [ $error_found == 1 ]
 then
   echo
-  echo "Ensure you have installed the folders for the kitchen correctly."
+  echo "请确保已经正确的放置了“安卓厨房”的文件夹。"
   exit 0
 fi
 
@@ -67,26 +66,27 @@ do
 
   echo 
   echo "============================================================"
-  echo " Android Kitchen $version - by dsixda (xda-developers.com)"
+  echo " 安卓厨房 版本号：$version - 作者 dsixda (xda-developers.com)"
+  echo "                                        chaol汉化
   echo "============================================================"
   echo 
-  echo "> MAIN MENU"
+  echo "> 主菜单"
   echo
-  echo "  1 - Set up working folder from ROM"
-  echo "  2 - Add root permissions"
-  echo "  3 - Add BusyBox"
-  echo "  4 - Disable boot screen sounds"
-  echo "  5 - Zipalign all *.apk files to optimize RAM usage"
-  echo "  6 - Change wipe status of ROM"
-  echo "  7 - Change name of ROM"
-  echo "  8 - Show working folder information"
+  echo "  1 - 从ROM中设立工作目录"
+  echo "  2 - 添加root权限"
+  echo "  3 - 加入BusyBox"
+  echo "  4 - 禁止开机音效"
+  echo "  5 - 对所有的apk文件进行”zip对齐“以优化内存使用"
+  echo "  6 - 改变ROM的擦出状态"
+  echo "  7 - 改变ROM的名称"
+  echo "  8 - 显示工作目录信息"
   echo 
-  echo "  0 - ADVANCED OPTIONS"
-  echo " 00 - LEGACY OPTIONS (old and rarely used)"
-  echo " 99 - Build ROM from working folder"
+  echo "  0 - 高级选项"
+  echo " 00 - 经典选项（废旧并且较少使用）"
+  echo " 99 - 从工作目录构建ROM"
   echo
-  echo "  u - Kitchen Info/Update/Donate"
-  echo "  x - Exit"
+  echo "  u - 安卓厨房信息/更新/捐献"
+  echo "  x - 退出"
   echo
   echo 
   echo -n "Enter option: "
@@ -112,8 +112,8 @@ do
       00) scripts/menu_legacy $version; continue;;
       99) scripts/build_rom;;
       u) scripts/about $version; continue;;
-      x) scripts/init_kitchen; clear; echo; echo "Goodbye."; echo; exit 1;;
-      *) echo "Invalid option"; continue;;
+      x) scripts/init_kitchen; clear; echo; echo "再见^_^"; echo; exit 1;;
+      *) echo "无效选项"; continue;;
     esac
   fi
 
